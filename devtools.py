@@ -155,3 +155,25 @@ CREATE REPOSITORIES
 2.Creates a new local repository with the specified name
 		$ git clone [url]
 	Downloads a project and its entire version history
+
+
+=========================================================
+MAKE CHANGES
+====================================================
+1.Lists all new or modified files to be commited
+
+	$ git status
+2.Snapshots the file in preparation for versioning
+
+	$ git add [file]
+
+3.Records file snapshots permanently in version history
+	$ git commit -m "[descriptive message]"
+
+=============================================
+SYNCHRONIZE CHANGES
+==============================================
+1.Uploads all local branch commits to GitHub
+	$ git push [alias] [branch]
+2.Downloads bookmark history and incorporates changes
+	$ git pull
