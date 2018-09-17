@@ -1,0 +1,133 @@
+# Exceptions Handling
+# ========================
+
+
+# Errors
+# =========
+# 
+#  Example ------1
+#  ----------------------
+# a =  1
+# b =  0
+# print(a/b)
+
+
+# Traceback (most recent call last):
+#   File "exphandling.py", line 10, in <module>
+#     print(a/b)
+# ZeroDivisionError: division by zero
+
+# Example -------2 
+
+# peint('hello')
+# NameError: name 'peint' is not defined
+
+
+# To mange this exption 4 claus
+# ------------------------------
+
+# try , except 
+
+# try ----------- > here you will wirite the actual code that is needed to excuted
+# except ----------> Here you will try to handle the execption reaised in the try bloc
+
+# Example --- 3
+# ====================
+
+# single execption Handling
+# ==============================
+
+# try:
+# 	a = int(input('Enter a nuber---1\n'))
+# 	b = int(input('Enter a nuber---2\n'))
+# 	print(a/b)
+# except ZeroDivisionError:
+# 	print('There is zero in the denominator')
+
+
+# Multiple Exceptions Handling
+# ================================
+# try:
+# 	a = int(input('Enter a nuber---1\n'))
+# 	b = int(input('Enter a nuber---2\n'))
+# 	print(a/b)
+
+# except ValueError:
+# 	print('Please enter a valid input\n')
+# except ZeroDivisionError:
+# 	print('There is zero in the denominator')
+
+
+
+# try:
+# 	a = int(input('Enter a nuber---1\n'))
+# 	b = int(input('Enter a nuber---2\n'))
+# 	print(a/b)
+
+# except (ZeroDivisionError,ValueError):
+# 	print('Please Check your inputs')
+
+
+# else - will be excuted when there is no execption rasied
+# finally - will be alwasys exeuted
+# try:
+# 	a = int(input('Enter a nuber---1\n'))
+# 	b = int(input('Enter a nuber---2\n'))
+# 	a/b
+
+# except (ZeroDivisionError,ValueError):
+# 	print('Please Check your inputs')
+
+# else:
+# 	print(a/b)
+
+# finally:
+# 	print('The opration has ended')
+
+# raise ----------> inbult keywod to raise an execption
+
+
+# Definig our own execption class 
+# ==============================
+
+# when ever your trying define own exption class you need to
+# inherite the Exception class from the BaseException class 
+
+
+# A program whic guess the age of a person example age = 24
+
+class Error(Exception):
+	pass
+class OverAgeError(Error):
+	pass
+class UnderAgeError(Error):
+	pass
+class NotYetBoarError(Error):
+	pass
+
+age = 24
+try:
+	inage = int(input('Guess the age of the Person\n'))
+
+	if inage <= 0:
+		raise NotYetBoarError
+	elif inage > age:
+		raise OverAgeError
+	elif inage < age:
+		raise UnderAgeError
+
+except UnderAgeError:
+	print('The Person is more older than you think\n')
+except OverAgeError:
+	print('The person is more Younger than you think\n')
+except NotYetBoarError:
+	print('The Person is not Yet boarn\n')
+
+
+else:
+
+	print('''  ******Congratulations********
+				You have Guessed the correctly.........!!!!!
+		''')
+finally:
+	print('Some age has been given')
