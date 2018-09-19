@@ -1,0 +1,36 @@
+
+class Error(Exception):
+	pass
+class OverageError(Error):
+	pass
+class UnderageError(Error):
+	pass
+class PersonNotyetborn(Error):
+	pass
+
+
+age = 25
+
+
+try:
+	input_age = int(input('Guess the age of the person\n'))
+
+	if input_age <= 0:
+		raise PersonNotyetborn
+	elif input_age < age:
+		raise UnderageError
+	elif input_age > age:
+		raise OverageError
+except PersonNotyetborn:
+	print('The person is not yet boarn try again...........!')
+except UnderageError:
+	print('The person is older than what you think try again ............!')
+except OverageError:
+	print('The person is Younger than what you think try again.......!')
+except ValueError:
+	print('Plesae chek your input')
+else:
+	print('!-----------You have sussfully guessed the age ------------- !')
+
+finally:
+	print('Program endedcd')
